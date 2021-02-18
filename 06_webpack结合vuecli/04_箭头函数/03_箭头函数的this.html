@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 箭头函数的常用情景：将函数作为参数
+    // 箭头函数的this引用的是最近作用域的this，是如何查找的呢：向外层作用域中一层层查找，直到有this
+    setTimeout(() => {
+      console.log(this)
+    }, 1000)
+
+    const obj = {
+      add() {
+        setTimeout(() => {
+          console.log(this) // aaa对象
+        }, 1000)
+        setTimeout(function () {
+          console.log(this) // window对象
+        })
+      }
+    }
+</script>
+</body>
+</html>
